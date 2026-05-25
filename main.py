@@ -294,3 +294,7 @@ You have complete access to their expense data and give actionable, data-driven 
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+@app.get("/")
+def root():
+    return {"status": "ok"}

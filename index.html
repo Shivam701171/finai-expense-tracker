@@ -410,9 +410,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:
   /* Regular pages */
   .page{padding:16px 14px 24px;animation:pageIn .25s ease}
 
-  /* AI page — padding-bottom = bottom nav height so input is never hidden */
+  /* AI page */
   .ai-page{
-    padding:10px 12px 74px;
+    padding:10px 12px 0;
     display:none;
     flex-direction:column;
     height:auto;
@@ -420,14 +420,14 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:
   }
   .ai-page.active{display:flex}
 
-  /* Chat shell — natural flex column */
+  /* Chat shell */
   .chat-shell{
     max-width:100%;
     border-radius:12px;
     flex:1;
     display:flex;
     flex-direction:column;
-    min-height:calc(100vh - 56px - 64px - 84px);
+    min-height:calc(100vh - 56px - 64px - 22px);
   }
 
   /* Messages area scrolls */
@@ -435,12 +435,12 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:
     flex:1;
     overflow-y:auto;
     padding:12px;
-    min-height:120px;
+    min-height:80px;
   }
 
-  /* Input row always visible */
+  /* Input row — raised well above bottom nav */
   .chat-input-row{
-    padding:10px 12px;
+    padding:12px 12px 80px;
     flex-shrink:0;
     background:var(--white);
   }

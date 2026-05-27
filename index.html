@@ -410,9 +410,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:
   /* Regular pages */
   .page{padding:16px 14px 24px;animation:pageIn .25s ease}
 
-  /* AI page */
+  /* AI page — padding-bottom = bottom nav height so input is never hidden */
   .ai-page{
-    padding:10px 12px 12px;
+    padding:10px 12px 74px;
     display:none;
     flex-direction:column;
     height:auto;
@@ -427,7 +427,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:
     flex:1;
     display:flex;
     flex-direction:column;
-    min-height:calc(100vh - 56px - 64px - 24px);
+    min-height:calc(100vh - 56px - 64px - 84px);
   }
 
   /* Messages area scrolls */

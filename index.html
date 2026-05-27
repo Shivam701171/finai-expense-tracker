@@ -410,50 +410,52 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:
   /* Regular pages */
   .page{padding:16px 14px 24px;animation:pageIn .25s ease}
 
-  /* AI page */
+  /* AI page — exact height between topbar and bottom nav */
   .ai-page{
-    padding:10px 12px 0;
+    padding:8px 10px;
     display:none;
     flex-direction:column;
-    height:auto;
-    min-height:calc(100vh - 56px - 64px);
+    height:calc(100vh - 56px - 64px);
+    max-height:calc(100vh - 56px - 64px);
+    overflow:hidden;
   }
   .ai-page.active{display:flex}
 
-  /* Chat shell */
+  /* Chat shell — fills available space exactly, nothing overflows */
   .chat-shell{
     max-width:100%;
     border-radius:12px;
-    flex:1;
     display:flex;
     flex-direction:column;
-    min-height:calc(100vh - 56px - 64px - 22px);
+    height:100%;
+    max-height:100%;
+    overflow:hidden;
   }
 
-  /* Messages area scrolls */
+  /* Messages scroll inside the box */
   .chat-msgs{
     flex:1;
     overflow-y:auto;
     padding:12px;
-    min-height:80px;
+    min-height:0;
   }
 
-  /* Input + chip bar — sticky above bottom nav, never scrolls away */
+  /* Input row — sits naturally at bottom of the shell */
   .chat-input-row{
-    position:sticky;
-    bottom:64px;
-    padding:10px 12px 12px;
+    padding:10px 12px;
     flex-shrink:0;
     background:var(--white);
     border-top:1px solid #F0EFEB;
-    z-index:200;
   }
+
+  /* Chips scroll horizontally */
   .chip-bar{
-    position:sticky;
-    bottom:calc(64px + 56px);
-    z-index:200;
-    background:var(--white);
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding:6px 12px;
+    flex-shrink:0;
   }
+  .chip-bar::-webkit-scrollbar{display:none}
 
   /* Suggestions scroll horizontally */
   .chip-bar{

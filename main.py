@@ -291,10 +291,7 @@ You have complete access to their expense data and give actionable, data-driven 
     )
     return {"reply": response.choices[0].message.content}
 
-@app.get("/health")
+@app.api_route("/", methods=["GET", "HEAD"])
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health():
-    return {"status": "ok"}
-
-@app.get("/")
-def root():
-    return {"status": "ok"}
+    return {"status": "ok", "service": "FinAI"}
